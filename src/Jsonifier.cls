@@ -3,6 +3,15 @@
     File        : Jsonifier
     Purpose     : Create JSON debugging output based on a handle or an object.
     Syntax      : 
+                    See test_Jsonifier for examples.
+                    Basically you use a static call like:
+                        
+                        oJsonOut = Jsonifier.Jsonify(oSomeobject)
+                        or
+                        oJsonOut = Jsonifier.Jsonify(hHandle)
+                    
+                    Then use oJsonOut:WriteFile() to create a JSON representation
+                    of the object and its properties/children for debugging purposes.
     Description : 
     Author(s)   : S.E. Southwell
     Created     : Mon Dec 23 10:40:23 CST 2024
@@ -10,7 +19,8 @@
         1. This currently has no method to prevent circular references from blowing the stack.
         
     To do       :
-        1. Handle circular references.
+        1. Handle circular references.  e.g.: Class A has an attribute for Class B, which has an attribute
+            referring back to Class A.
   ----------------------------------------------------------------------*/
 
 USING Progress.Lang.*.
